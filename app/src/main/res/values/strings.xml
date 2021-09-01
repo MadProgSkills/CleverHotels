@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Clever Hotels</string>
+    <string name="all_hotels">All Hotels</string>
+    <string name="info">Info</string>
+    <string name="pic">pic</string>
+    <string name="stars_preview_text">3.0</string>
+    <string name="name_preview_text">Best Western President Hotel at Times Square</string>
+    <string name="address_preview_text">250 West 77th Street, Manhattan</string>
+    <string name="name_label_text">Name:</string>
+    <string name="address_label_text">Address:</string>
+    <string name="suites_label_text">Suites Available:</string>
+    <string name="pic_description">Here You see a picture of a perfect Hotel with 1 star rating</string>
+    <string name="stars_label_text">Hotel rating:</string>
+    <string name="distance_label_text">Distance to center:</string>
+    <string name="distance_preview_text">999.9</string>
+    <string name="suites_preview_text">12</string>
+    <string name="sort_by_default">Sort by default</string>
+    <string name="sort_by_distance">Sort by distance</string>
+    <string name="sort_by_suites">Sort by suites</string>
+</resources>

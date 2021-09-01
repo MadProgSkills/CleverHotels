@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/item_margin"
+    android:layout_marginStart="@dimen/item_margin"
+    android:layout_marginEnd="@dimen/item_margin"
+    android:layout_marginBottom="@dimen/item_margin_bottom"
+    app:cardCornerRadius="@dimen/card_corner"
+    app:cardElevation="@dimen/card_elevation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/item_vertical_border1"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/list_item_distance_tv"
+            app:layout_constraintStart_toStartOf="@+id/list_item_name_tv"/>
+
+        <View
+            android:id="@+id/item_horizontal_border1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/list_item_name_tv"
+            app:layout_constraintEnd_toEndOf="@id/list_item_stars_tv"/>
+
+        <TextView
+            android:id="@+id/list_item_name_tv"
+            style="@style/item_tv_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/list_item_stars_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/name_preview_text" />
+
+
+        <View
+            android:id="@+id/item_horizontal_border2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="@+id/list_item_distance_tv"
+            app:layout_constraintStart_toStartOf="@+id/list_item_name_tv"
+            app:layout_constraintEnd_toEndOf="@id/list_item_stars_tv"
+            />
+
+
+        <TextView
+            android:id="@+id/list_item_stars_tv"
+            style="@style/item_tv_style"
+            app:layout_constraintBottom_toTopOf="@+id/list_item_suites_label_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/list_item_name_tv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/stars_preview_text" />
+
+        <TextView
+            android:id="@+id/list_item_distance_label_tv"
+            style="@style/item_tv_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/label_padding_start"
+            android:text="@string/distance_label_text"
+            app:layout_constraintEnd_toStartOf="@id/list_item_suites_label_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/list_item_name_tv"
+            tools:ignore="RtlSymmetry" />
+
+        <View
+            android:id="@+id/item_vertical_border2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/list_item_name_tv"
+            app:layout_constraintBottom_toBottomOf="@+id/list_item_distance_tv"
+            app:layout_constraintStart_toStartOf="@+id/list_item_suites_label_tv"/>
+
+        <TextView
+            android:id="@+id/list_item_distance_tv"
+            style="@style/item_tv_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/list_item_suites_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/list_item_name_tv"
+            tools:text="@string/distance_preview_text" />
+
+        <TextView
+            android:id="@+id/list_item_suites_label_tv"
+            style="@style/item_tv_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/list_item_distance_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/list_item_name_tv"
+            android:text="@string/suites_label_text" />
+
+ <TextView
+            android:id="@+id/list_item_suites_tv"
+            style="@style/item_tv_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/list_item_name_tv"
+            tools:text="@string/suites_preview_text" />
+
+        <View
+            android:id="@+id/item_horizontal_border3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/list_item_name_tv"
+            app:layout_constraintEnd_toEndOf="@id/list_item_stars_tv"/>
+
+        <View
+            android:id="@+id/item_vertical_border3"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/list_item_distance_tv"
+            app:layout_constraintEnd_toEndOf="@+id/list_item_stars_tv"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

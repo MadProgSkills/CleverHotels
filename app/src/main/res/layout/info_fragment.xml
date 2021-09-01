@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.InfoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/info_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/info_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/info_border_margin"
+            android:clickable="true"
+            android:contentDescription="@string/pic_description"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_horizontal_border6" />
+
+        <View
+            android:id="@+id/info_vertical_border1"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/info_border_margin"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/info_horizontal_border6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/info_horizontal_border1" />
+
+        <View
+            android:id="@+id/info_horizontal_border1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/info_border_margin"
+            android:layout_marginEnd="@dimen/info_border_margin"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/info_name_label_tv"
+            style="@style/info_label_tv_style"
+            android:text="@string/name_label_text"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toBottomOf="@id/info_horizontal_border1" />
+
+        <TextView
+            android:id="@+id/info_name_tv"
+            style="@style/info_tv_style"
+            app:layout_constraintBottom_toBottomOf="@id/info_horizontal_border2"
+            app:layout_constraintEnd_toEndOf="@id/info_vertical_border2"
+            app:layout_constraintStart_toEndOf="@id/info_name_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/info_horizontal_border1"
+            tools:text="@string/name_preview_text" />
+
+        <View
+            android:id="@+id/info_horizontal_border2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/info_border_margin"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toTopOf="@id/info_address_label_tv" />
+
+        <TextView
+            android:id="@+id/info_address_label_tv"
+            style="@style/info_label_tv_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address_label_text"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toBottomOf="@+id/info_name_label_tv" />
+
+        <TextView
+            android:id="@+id/info_address_tv"
+            style="@style/info_tv_style"
+            app:layout_constraintBottom_toBottomOf="@id/info_horizontal_border3"
+            app:layout_constraintEnd_toEndOf="@id/info_vertical_border2"
+            app:layout_constraintStart_toEndOf="@id/info_address_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/info_horizontal_border2"
+            tools:text="@string/address_preview_text" />
+
+        <View
+            android:id="@+id/info_horizontal_border3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/info_border_margin"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toTopOf="@id/info_suites_label_tv" />
+
+        <TextView
+            android:id="@+id/info_suites_label_tv"
+            style="@style/info_label_tv_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/suites_label_text"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toBottomOf="@+id/info_address_label_tv" />
+
+        <TextView
+            android:id="@+id/info_suites_tv"
+            style="@style/info_tv_style"
+            app:layout_constraintBottom_toBottomOf="@id/info_horizontal_border4"
+            app:layout_constraintEnd_toEndOf="@id/info_vertical_border2"
+            app:layout_constraintStart_toEndOf="@id/info_suites_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/info_horizontal_border3"
+            tools:text="@string/suites_preview_text" />
+
+        <View
+            android:id="@+id/info_horizontal_border4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/info_border_margin"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toTopOf="@id/info_distance_label_tv" />
+
+        <TextView
+            android:id="@+id/info_distance_label_tv"
+            style="@style/info_label_tv_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/distance_label_text"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toBottomOf="@+id/info_suites_label_tv" />
+
+        <TextView
+            android:id="@+id/info_distance_tv"
+            style="@style/info_tv_style"
+            app:layout_constraintBottom_toBottomOf="@id/info_horizontal_border5"
+            app:layout_constraintEnd_toEndOf="@id/info_vertical_border2"
+            app:layout_constraintStart_toEndOf="@id/info_distance_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/info_horizontal_border4"
+            tools:text="@string/distance_preview_text" />
+
+        <View
+            android:id="@+id/info_horizontal_border5"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/info_border_margin"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toTopOf="@id/info_stars_label_tv" />
+
+        <TextView
+            android:id="@+id/info_stars_label_tv"
+            style="@style/info_label_tv_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stars_label_text"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1"
+            app:layout_constraintTop_toBottomOf="@+id/info_distance_label_tv" />
+
+        <TextView
+            android:id="@+id/info_stars_tv"
+            style="@style/info_tv_style"
+            app:layout_constraintBottom_toBottomOf="@id/info_horizontal_border6"
+            app:layout_constraintEnd_toEndOf="@id/info_vertical_border2"
+            app:layout_constraintStart_toEndOf="@id/info_stars_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/info_horizontal_border5"
+            tools:text="@string/stars_preview_text" />
+
+        <View
+            android:id="@+id/info_horizontal_border6"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/info_border_margin"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/info_stars_label_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/info_vertical_border1" />
+
+        <View
+            android:id="@+id/info_vertical_border2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/info_border_margin"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/info_horizontal_border6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/info_horizontal_border1"
+            app:layout_constraintTop_toTopOf="@+id/info_horizontal_border1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/info_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        tools:visibility="visible" />
+
+</FrameLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="ru.iqmafia.cleverhotels.ui.fragments.ListFragment"
+        android:label="list_fragment"
+        tools:layout="@layout/list_fragment" >
+        <action
+            android:id="@+id/action_listFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="ru.iqmafia.cleverhotels.ui.fragments.InfoFragment"
+        android:label="info_fragment"
+        tools:layout="@layout/info_fragment" >
+        <action
+            android:id="@+id/action_infoFragment_to_picFragment"
+            app:destination="@id/picFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/picFragment"
+        android:name="ru.iqmafia.cleverhotels.ui.fragments.PicFragment"
+        android:label="pic_fragment"
+        tools:layout="@layout/pic_fragment" >
+        <action
+            android:id="@+id/action_picFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_picFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+</navigation>

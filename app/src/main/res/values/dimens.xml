@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_elevation">12dp</dimen>
+    <dimen name="card_corner">4dp</dimen>
+    <dimen name="item_margin">8dp</dimen>
+    <dimen name="item_padding">8dp</dimen>
+    <dimen name="info_padding">8dp</dimen>
+    <dimen name="info_border_margin">16dp</dimen>
+    <dimen name="label_padding_start">16dp</dimen>
+    <dimen name="item_margin_bottom">0dp</dimen>
+    <dimen name="pic_frag_name_margin">32dp</dimen>
+</resources>
