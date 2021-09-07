@@ -14,7 +14,8 @@ import ru.iqmafia.cleverhotels.utils.ROOM_REPOSITORY
 
 class InfoViewModel : ViewModel() {
     var infoRetrofitResponse: MutableLiveData<Response<InfoResponse>> = MutableLiveData()
-    var infoRoomResponse: LiveData<InfoResponseEntity> = MutableLiveData()
+    private var _infoRoomResponse: LiveData<InfoResponseEntity> = MutableLiveData()
+    val infoRoomResponse get() = _infoRoomResponse
 
     fun dynamicFetchHotel(hotelsRetrofitApi: HotelsRetrofitApi, hotelId: Int) {
         viewModelScope.launch {
@@ -33,9 +34,9 @@ class InfoViewModel : ViewModel() {
         var response: LiveData<InfoResponseEntity>
         viewModelScope.launch {
             response = ROOM_REPOSITORY.infoRoomResponse
-            infoRoomResponse = response
+            _infoRoomResponse = response
         }
-        return infoRoomResponse
+        return _infoRoomResponse
     }
 
 }
