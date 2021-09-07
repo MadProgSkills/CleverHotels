@@ -13,14 +13,15 @@ import ru.iqmafia.cleverhotels.utils.MY_IO_SCOPE
 import ru.iqmafia.cleverhotels.utils.ROOM_REPOSITORY
 
 class InfoViewModel : ViewModel() {
-    var infoRetrofitResponse: MutableLiveData<Response<InfoResponse>> = MutableLiveData()
+    private val _infoRetrofitResponse: MutableLiveData<Response<InfoResponse>> = MutableLiveData()
+    val infoRetrofitResponse get() = _infoRetrofitResponse
     private var _infoRoomResponse: LiveData<InfoResponseEntity> = MutableLiveData()
     val infoRoomResponse get() = _infoRoomResponse
 
     fun dynamicFetchHotel(hotelsRetrofitApi: HotelsRetrofitApi, hotelId: Int) {
         viewModelScope.launch {
             val response = hotelsRetrofitApi.dynamicFetchHotelRetrofit(hotelId = hotelId)
-            infoRetrofitResponse.value = response
+            _infoRetrofitResponse.value = response
         }
     }
 

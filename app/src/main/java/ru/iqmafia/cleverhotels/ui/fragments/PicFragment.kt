@@ -107,7 +107,6 @@ class PicFragment : Fragment() {
 
 
     override fun onDestroy() {
-        _mBinding = null
         super.onDestroy()
     }
 

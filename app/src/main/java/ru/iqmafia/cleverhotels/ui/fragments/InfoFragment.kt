@@ -2,6 +2,7 @@ package ru.iqmafia.cleverhotels.ui.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.net.http.SslCertificate.saveState
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log.d
@@ -45,8 +46,6 @@ class InfoFragment : Fragment() {
     private var mStars: Double? = null
     private var mImageId: String? = null
 
-
-    //    private var
     private lateinit var mActivity: MainActivity
 
     override fun onAttach(context: Context) {
@@ -63,9 +62,12 @@ class InfoFragment : Fragment() {
             mHotelId = arguments?.getInt("id")
         }
 
+
+        showProgressBar()
+
         mViewModel = ViewModelProvider(mActivity).get(InfoViewModel::class.java)
 
-        fetchInfoByRetrofit()
+        fetchByRetrofit()
 
         mBinding.infoImage.setOnClickListener {
             val myBundle = Bundle().apply {
@@ -73,32 +75,15 @@ class InfoFragment : Fragment() {
                 putString("name", mHotelName)
             }
             ACTIVITY.navController.navigate(R.id.action_infoFragment_to_picFragment, myBundle)
-
-            Toast.makeText(activity, "OnCreate Info", Toast.LENGTH_SHORT)
-                .show()
         }
 
 
         return mBinding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-        Toast.makeText(activity, "OnStart Info", Toast.LENGTH_SHORT)
-            .show()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Toast.makeText(activity, "OnResume Info", Toast.LENGTH_SHORT)
-            .show()
-    }
-
-
-    private fun fetchInfoByRetrofit() {
+    private fun fetchByRetrofit() {
         //IF START FROM INTENT
         if (mHotelId != null) {
-            showProgressBar()
             mViewModel.dynamicFetchHotel(
                 (activity?.application as MyApp).hotelsRetrofitApi,
                 mHotelId!!
@@ -119,44 +104,55 @@ class InfoFragment : Fragment() {
                                 stars = response.body()?.stars
                             )
                         )
+                        fetchFromRoom()
                     }
                 } else {
                     d(TAG, "Retrofit error: $response.message()")
                 }
             })
         }
-        updateUI()
+        fetchFromRoom()
     }
 
 
-    private fun updateUI() {
+    private fun fetchFromRoom() {
         MY_MAIN_SCOPE.launch {
-            if (mImageId == null) {
-                mViewModel.getInfoFromRoom()
-                val myObserver = Observer<InfoResponseEntity> {
-                    mBinding.infoNameTv.text = it.name
-                    mBinding.infoAddressTv.text = it.address
-                    mBinding.infoSuitesTv.text = it.suitesCount.toString()
-                    mBinding.infoDistanceTv.text = it.distance.toString()
-                    mBinding.infoStarsTv.text = it.stars.toString()
+            mViewModel.getInfoFromRoom()
+            mViewModel.infoRoomResponse.observe(viewLifecycleOwner, Observer {
+                if (it != null) {
+                    mHotelName = it.name
+                    mAddress = it.address
+                    mSuitesCount = it.suitesCount
+                    mDistance = it.distance
+                    mStars = it.stars
                     mImageId = it.image
-                    Picasso.get().load("$IMAGE_BASE_URL$mImageId")
-                        .transform(PicassoTransformation())
-                        .into(mBinding.infoImage, object : Callback {
-                            override fun onSuccess() {
-                                hideProgressBar()
-                            }
-
-                            override fun onError(e: Exception?) {
-                                hideProgressBar()
-                                d(TAG, "Picasso error: $e")
-                            }
-                        })
                 }
-                mViewModel.infoRoomResponse.observe(viewLifecycleOwner, myObserver)
-
-            }
+            })
+            delay(1000)
+            updateUI()
         }
+
+
+    }
+
+    private fun updateUI() {
+        mBinding.infoNameTv.text = mHotelName
+        mBinding.infoAddressTv.text = mAddress
+        mBinding.infoSuitesTv.text = mSuitesCount.toString()
+        mBinding.infoDistanceTv.text = mDistance.toString()
+        mBinding.infoStarsTv.text = mStars.toString()
+        Picasso.get().load("$IMAGE_BASE_URL$mImageId")
+            .transform(PicassoTransformation())
+            .into(mBinding.infoImage, object : Callback {
+                override fun onSuccess() {
+                    hideProgressBar()
+                }
+
+                override fun onError(e: Exception?) {
+                    hideProgressBar()
+                    d(TAG, "Picasso error: $e")
+                }
+            })
     }
 
 

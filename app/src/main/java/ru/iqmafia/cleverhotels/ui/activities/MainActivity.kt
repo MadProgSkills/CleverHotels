@@ -42,11 +42,10 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         botNav.setupWithNavController(navController)
-        botNav.selectedItemId = R.id.listFragment
+//        botNav.selectedItemId = R.id.listFragment
     }
 
     override fun onDestroy() {
-        MY_IO_SCOPE.launch { ROOM_REPOSITORY.clearAllRoomTables() }
         super.onDestroy()
     }
 }
